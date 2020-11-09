@@ -1,9 +1,13 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
+import NavigationDrawer from './Components/NavigationDrawer/NavigationDrawer';
 
 function App() {
   return (
     <div className="App">
-      <h1>Breath App!!</h1>
+      <Router >
+      <NavigationDrawer />
+      </Router>
     </div>
   );
 }
