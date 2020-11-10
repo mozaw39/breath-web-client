@@ -23,7 +23,7 @@ export default function DrawerItems(){
         <List>
           {publicResources.map((text, index) => (
             <ListItem component={Link} to={text} button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <HomeIcon color="secondary" /> : <CastForEducationIcon color="secondary" />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <HomeIcon color="inherit" /> : <CastForEducationIcon color="inherit" />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -32,7 +32,7 @@ export default function DrawerItems(){
         <List>
           {adminResources.map((text, index) => (
             <ListItem component={Link} to={text} button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <DashboardIcon color="secondary" /> : <DashboardIcon color="secondary" />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <DashboardIcon color="inherit" /> : <DashboardIcon color="inherit" />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -42,7 +42,7 @@ export default function DrawerItems(){
         <List>
           {authenticatedResources.map((text, index) => (
             <ListItem component={Link} to={text} button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <AccountCircleIcon color="secondary" /> : <ExitToAppIcon color="secondary" />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <AccountCircleIcon color="inherit" /> : <ExitToAppIcon color="inherit" />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
