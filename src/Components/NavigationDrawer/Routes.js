@@ -4,6 +4,7 @@ import Dashboard from '../../Pages/AdminPages/Dashboard';
 import Profile from '../../Pages/AuthenticatedPages/Profile';
 import Formations from '../../Pages/Formations';
 import Home from '../../Pages/Home';
+import Logout from '../../Pages/Logout';
 import SignInPage from '../../Pages/SignInPage';
 import SignUpPage from '../../Pages/SignUpPage';
 import { UserContext } from '../../UserContext';
@@ -17,6 +18,7 @@ export default function Routes(){
             <Route path="/profile" > <Profile/> </Route>
             <Route path="/sign-in" > <SignInPage/> </Route>
             <Route path="/sign-up" > <SignUpPage/> </Route>
+            <Route path="/logout" > <Logout/> </Route>
         </Switch>
             
     );

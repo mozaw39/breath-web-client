@@ -23,4 +23,4 @@ function UserContextProvider({children}){
     );
 }
 
-export {UserContext, UserDispatchContext, UserContextProvider}
+export {defaultValue, UserContext, UserDispatchContext, UserContextProvider}
