@@ -15,6 +15,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import Routes from './Routes';
 import DrawerItems from './DrawerItems';
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -39,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: 36,
+    
+  },
+  signInButton: {
+    color: "#FFF"
+    
+  
   },
   hide: {
     display: 'none',
@@ -50,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper:{
       backgroundColor: "#214252",
-      color: "#FFF"
+      color: "#000"
   },
   drawerOpen: {
     width: drawerWidth,
@@ -120,9 +128,16 @@ export default function NavigationDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          {/* <Typography variant="h6" noWrap>
             Breath
+          </Typography> */}
+          <Button >
+            <Link to="/sign-in">
+          <Typography color="textPrimary" classeName={classes.signInButton} variant="body1" noWrap>
+          Sign In
           </Typography>
+            </Link>
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer

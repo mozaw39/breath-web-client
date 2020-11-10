@@ -11,6 +11,7 @@ import CastForEducationIcon from '@material-ui/icons/CastForEducation';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
+import WithAuthentication from '../../Pages/AuthenticatedPages/WithAuthentication';
 
 const publicResources = ['home', 'formations'];
 const authenticatedResources = ['profile', 'logout'];
@@ -37,6 +38,7 @@ export default function DrawerItems(){
           ))}
         </List>
         <Divider />
+        <WithAuthentication>
         <List>
           {authenticatedResources.map((text, index) => (
             <ListItem component={Link} to={text} button key={text}>
@@ -45,6 +47,7 @@ export default function DrawerItems(){
             </ListItem>
           ))}
         </List>
+        </WithAuthentication>
         </>
     );
 }
