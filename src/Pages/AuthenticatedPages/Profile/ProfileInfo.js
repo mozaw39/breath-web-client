@@ -19,9 +19,9 @@ import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 import ContactMailIcon from "@material-ui/icons/ContactMail";
 import PermContactCalendarIcon from "@material-ui/icons/PermContactCalendar";
 import React from "react";
-import { UserContext, UserDispatchContext } from "../../Context/UserContext";
-import WithAuthentication from "./WithAuthentication";
-import image from "../../assets/placeholder.jpg";
+import { UserContext, UserDispatchContext } from "../../../Context/UserContext";
+import WithAuthentication from "../WithAuthentication";
+import image from "../../../assets/placeholder.jpg";
 import { PhotoCamera } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
@@ -60,7 +60,7 @@ const infosTitle = {
   login: "Login",
 };
 
-function Profile() {
+export default function ProfileInfo() {
   const classes = useStyles();
   const dispatchContext = React.useContext(UserDispatchContext);
   const context = React.useContext(UserContext);
@@ -132,5 +132,3 @@ function Profile() {
     </>
   );
 }
-
-export default Profile;

@@ -1,11 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import { Fab, Zoom } from "@material-ui/core";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -36,24 +37,30 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `scrollable-auto-tab-${index}`,
-    'aria-controls': `scrollable-auto-tabpanel-${index}`,
+    "aria-controls": `scrollable-auto-tabpanel-${index}`,
   };
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    width: '100%',
+    width: "100%",
     backgroundColor: theme.palette.background.paper,
   },
 }));
 
 export default function TabsComponent(props) {
   const classes = useStyles();
+  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const transitionDuration = {
+    enter: theme.transitions.duration.enteringScreen,
+    exit: theme.transitions.duration.leavingScreen,
   };
 
   return (
@@ -68,29 +75,41 @@ export default function TabsComponent(props) {
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          {
-            props.tabLabel.map( (value, key) =>
-            <Tab label={value} {...a11yProps(key)} /> 
-            )
-          }
+          {props.tabLabel.map((value, key) => (
+            <Tab label={value} {...a11yProps(key)} />
+          ))}
           {/* <Tab label="Item One" {...a11yProps(0)} />
           <Tab label="Item Two" {...a11yProps(1)} />
           <Tab label="Item Three" {...a11yProps(2)} /> */}
         </Tabs>
       </AppBar>
-      {
-        props.tabContent.map( (table, key) =>
+      {props.tabContent.map((table, key) => (
         <TabPanel value={value} index={key}>
-        {table}
-      </TabPanel>
-        )
-      }
-      {/* <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel> */}
+          {table}
+        </TabPanel>
+      ))}
+      {props.fabs &&
+        props.fabs.map((fab, index) => (
+          <Zoom
+            key={fab.color}
+            in={value === index}
+            timeout={transitionDuration}
+            style={{
+              transitionDelay: `${
+                value === index ? transitionDuration.exit : 0
+              }ms`,
+            }}
+            unmountOnExit
+          >
+            <Fab
+              aria-label={fab.label}
+              className={fab.className}
+              color={fab.color}
+            >
+              {fab.icon}
+            </Fab>
+          </Zoom>
+        ))}
     </div>
   );
 }

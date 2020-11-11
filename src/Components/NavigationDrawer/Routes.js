@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Dashboard from "../../Pages/AdminPages/Dashboard";
-import Profile from "../../Pages/AuthenticatedPages/Profile";
+import Profile from "../../Pages/AuthenticatedPages/Profile/Profile";
 import Formations from "../../Pages/Formations";
 import Home from "../../Pages/Home";
 import Logout from "../../Pages/Logout";
