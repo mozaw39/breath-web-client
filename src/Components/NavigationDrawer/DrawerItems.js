@@ -12,6 +12,7 @@ import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import { Link } from 'react-router-dom';
 import WithAuthentication from '../../Pages/AuthenticatedPages/WithAuthentication';
+import WithAuthorization from '../../Pages/AdminPages/withAuthorization';
 
 const publicResources = ['home', 'formations'];
 const authenticatedResources = ['profile', 'logout'];
@@ -29,6 +30,7 @@ export default function DrawerItems(){
           ))}
         </List>
         <Divider />
+          <WithAuthorization>
         <List>
           {adminResources.map((text, index) => (
             <ListItem component={Link} to={text} button key={text}>
@@ -37,6 +39,7 @@ export default function DrawerItems(){
             </ListItem>
           ))}
         </List>
+          </WithAuthorization>
         <Divider />
         <WithAuthentication>
         <List>
