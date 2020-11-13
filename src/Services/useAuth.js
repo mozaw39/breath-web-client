@@ -30,9 +30,11 @@ export default function useAuth({ username, password }) {
               error: false,
             });
           })
-          .catch((error) =>
-            userDispatchContext({ ...userContext, error: true })
-          );
+          .catch((error) => {
+            userDispatchContext({ ...userContext, error: true });
+            setError(error);
+            console.log("error:" + error);
+          });
       };
       if (password && username) fetchCall();
     },

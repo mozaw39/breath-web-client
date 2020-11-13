@@ -31,8 +31,6 @@ export default function useQuery(url) {
             userDispatchContext({ ...userContext, error: true })
           );
       };
-      // if(password && username)
-      //   if (!data)
       fetchCall();
     },
     [url]
