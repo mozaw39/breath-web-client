@@ -13,32 +13,25 @@ export default function Routes() {
   return (
     <Switch>
       <Route exact path="/home">
-        {" "}
-        <Home />{" "}
+        <Home />
       </Route>
       <Route path="/formations">
-        {" "}
-        <Formations />{" "}
+        <Formations />
       </Route>
       <Route path="/dashboard">
-        {" "}
-        <Dashboard />{" "}
+        <Dashboard />
       </Route>
       <Route path="/profile">
-        {" "}
-        <Profile />{" "}
+        <Profile />
       </Route>
       <Route path="/sign-in">
-        {" "}
-        <SignInPage />{" "}
+        <SignInPage redirectionUrl="/home" url="candidats" />
       </Route>
       <Route path="/sign-up">
-        {" "}
-        <SignUpPage />{" "}
+        <SignUpPage />
       </Route>
       <Route path="/logout">
-        {" "}
-        <Logout />{" "}
+        <Logout />
       </Route>
     </Switch>
   );

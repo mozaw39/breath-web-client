@@ -33,6 +33,7 @@ export default function usePostQuery(url, postBody) {
             console.log("use PostQuery error: " + error);
             userDispatchContext({ ...userContext, error: true });
             setSignedUp(false);
+            setError(true);
           });
       };
       // if(password && username)

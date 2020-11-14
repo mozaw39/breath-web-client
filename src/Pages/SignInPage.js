@@ -13,7 +13,7 @@ export default function SignInPage() {
   return (
     <>
       <SignIn setUserInfo={setUserInfo} />
-      {error && <SnackBar />}
+      {error && <SnackBar message="username or password is incorrect!" />}
     </>
   );
 }

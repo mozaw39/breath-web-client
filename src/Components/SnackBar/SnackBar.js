@@ -43,7 +43,7 @@ export default function SnackBar(props) {
         onClose={handleClose}
       >
         <Alert onClose={handleClose} severity="error">
-          username or password is incorrect!
+          {props.message}
         </Alert>
       </Snackbar>
     </div>
