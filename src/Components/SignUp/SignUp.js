@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    // backgroundColor: "white",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -46,7 +47,11 @@ export default function SignUp(props) {
   });
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      style={{ backgroundColor: "white" }}
+      component="main"
+      maxWidth="xs"
+    >
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -174,13 +179,13 @@ export default function SignUp(props) {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          {/* <Grid container justify="flex-end">
             <Grid item>
               <Link to="/sign-in" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
-          </Grid>
+          </Grid> */}
         </form>
       </div>
     </Container>
