@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import SignUp from "../Components/SignUp/SignUp";
+import SnackBar from "../Components/SnackBar/SnackBar";
 import usePostQuery from "../Services/usePostQuery";
 
-const URL = "Inscription/candidats";
+const URL = "Inscription/";
 
-export default function SignUpPage() {
+export default function SignUpPage(props) {
   const [userInfo, setUserInfo] = useState(null);
-  const { isSignedUp, error } = usePostQuery(URL, userInfo);
-  if (error) return <div>error</div>;
+  const { isSignedUp, error } = usePostQuery(URL + props.url, userInfo);
   return (
     <>
       {isSignedUp ? (
-        <Redirect to="/sign-in" />
+        <Redirect to={props.redirectionUrl} />
       ) : (
-        <SignUp setUserInfo={setUserInfo} />
+        <>
+          <SignUp setUserInfo={setUserInfo} />
+          {error && <SnackBar message="user already exists" />}
+        </>
       )}
     </>
   );
