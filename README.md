@@ -2,8 +2,8 @@
 Breath is a distributed application that consists of a backend logic developped with JEE specification and two clients(mobile and web), this repository contains the web client code developped with ReactJS
 # Projects architecture
 This projects consists of 3 main parts:
-Components: The most basic parts of the application, that helps up build complexe views.
-Pages: Pages of the application that are consultable at each route.
+Components: The most basic parts of the application, that helps up build complexe views.<br/>
+Pages: Pages of the application that are consultable at each route.<br/>
 Services: The part that helps us consumme the services (built in breath backend: https://github.com/mozaw39/BreathBackend), getting data, handling authentication and authorization.
 # Projects screens
 ## Home page
